@@ -69,7 +69,7 @@
 
 (define (vnormalize a)
   (let ((len (vlen a)))
-    (if (> (abs len) 1.0e-6)
+    (if (> (abs len) 1.0e-17)
 	(vscale a (/ len))
 	a)))
 
@@ -161,7 +161,7 @@
 		    (plane-n plane))))
 	(v (vdot (ray-dir ray)
 		 (plane-n plane))))
-    (when (> (abs v) 1.0e-17)
+    (when (>= (abs v) 1.0e-17)
       (let ((t (- (/ (+ (vdot (ray-org ray) (plane-n plane)) d) v))))
 	(when (< .0 t (isect-t isect))
 	  (let ((hit 1)
