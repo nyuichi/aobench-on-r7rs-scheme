@@ -287,9 +287,9 @@
 	  (display (bytevector-u8-ref img (+ (* 3 (+ (* y w) x)) 2)))
 	  (display "\n"))))))
 
-(define (main)
+(define (run)
   (init-scene)
   (let ((img (render WIDTH HEIGHT NSUBSAMPLES)))
     (save-ppm "ao.ppm" WIDTH HEIGHT img)))
 
-(main)
+(run)
