@@ -1,8 +1,11 @@
-(import (scheme base)
-	(scheme file)
-	(scheme write)
-	(scheme inexact)
-	(srfi 27))
+;; (import (scheme base)
+;; 	(scheme file)
+;; 	(scheme write)
+;; 	(scheme inexact)
+;; 	(srfi 27))
+(use srfi-27)
+
+(define (square x) (* x x))
 
 (define-syntax dotimes
   (syntax-rules ()
