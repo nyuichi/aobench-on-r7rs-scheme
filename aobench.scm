@@ -76,7 +76,7 @@
 
 (define (vnormalize a)
   (let ((len (vlen a)))
-    (if (> (abs len) 1.0e-17)
+    (if (> len 1.0e-17)
 	(vscale a (/ len))
 	a)))
 
@@ -233,11 +233,11 @@
       (vec occlusion occlusion occlusion))))
 
 (define (clamp f)
-  (let ((i (* f 255.5)))
+  (let ((i (exact (floor (* f 255.5)))))
     (cond
       ((< i 0) 0)
       ((> i 255) 255)
-      (else (exact (floor i))))))
+      (else i))))
 
 (define (render w h nsubsamples)
   (let ((img (make-vector (* w h 3)))
@@ -247,9 +247,9 @@
 	(set! col (vec .0 .0 .0))
 	(dotimes (v nsubsamples)
 	  (dotimes (u nsubsamples)
-	    (let ((px (/ (+ x (/ u nsubsamples) (/ w -2.0))
+	    (let ((px (/ (- (+ x (/ u nsubsamples)) (/ w 2.0))
 			 (/ w 2.0)))
-		  (py (- (/ (+ y (/ v nsubsamples) (/ h -2.0))
+		  (py (- (/ (- (+ y (/ v nsubsamples)) (/ h 2.0))
 			    (/ h 2.0)))))
 	      (let ((ray (make-ray (vec .0 .0 .0) (vnormalize (vec px py -1.0)))))
 		(let ((isect (make-isect 1.0e+17 (vec .0 .0 .0) (vec .0 .0 .0) 0)))
