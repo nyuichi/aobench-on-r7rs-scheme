@@ -65,15 +65,7 @@
      (* (vz a) (vz b))))
 
 (define (vlen a)
-  (sqrt
-   (+ (square (vx a))
-      (square (vy a))
-      (square (vz a)))))
-
-(define (vneg a)
-  (vec (- (vx a))
-       (- (vy a))
-       (- (vz a))))
+  (sqrt (vdot a a)))
 
 (define (vnormalize a)
   (let ((len (vlen a)))
@@ -234,11 +226,11 @@
       (vec occlusion occlusion occlusion))))
 
 (define (clamp f)
-  (let ((i (exact (floor (* f 255.5)))))
+  (let ((i (* f 255.5)))
     (cond
       ((< i 0) 0)
       ((> i 255) 255)
-      (else i))))
+      (else (exact (floor i))))))
 
 (define (render w h nsubsamples)
   (let ((img (make-bytevector (* w h 3)))
