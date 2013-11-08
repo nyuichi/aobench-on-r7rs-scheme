@@ -262,7 +262,7 @@
 	(set! col (vscale col (/ (square nsubsamples))))
 	(vector-set! img (+ (* 3 (+ (* y w) x)) 0) (clamp (vx col)))
 	(vector-set! img (+ (* 3 (+ (* y w) x)) 1) (clamp (vy col)))
-	(vector-set! img (+ (* 3 (+ (* y w) x)) 2) (clamp (vz col))))
+	(vector-set! img (+ (* 3 (+ (* y w) x)) 2) (clamp (vz col)))))
     img))
 
 (define (init-scene)
