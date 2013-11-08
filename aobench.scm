@@ -267,7 +267,7 @@
     img))
 
 (define (init-scene)
-  (vector-set! spheres 0 (make-sphere (vec -2.0 0.0 3.5) 0.5))
+  (vector-set! spheres 0 (make-sphere (vec -2.0 0.0 -3.5) 0.5))
   (vector-set! spheres 1 (make-sphere (vec -0.5 0.0 -3.0) 0.5))
   (vector-set! spheres 2 (make-sphere (vec 1.0 0.0 -2.2) 0.5))
   (set! plane (make-plane (vec 0.0 -0.5 0.0) (vec 0.0 1.0 0.0))))
