@@ -26,7 +26,6 @@ $ time ./a.out
 
 ```sh
 $ time gosh aobench.scm
-$ time gosh aobench.scm
 gosh aobench.scm  208.40s user 0.71s system 90% cpu 3:50.26 total
 ```
 
