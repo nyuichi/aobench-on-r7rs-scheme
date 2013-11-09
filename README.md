@@ -25,7 +25,7 @@ $ time ./a.out
 - ao.png from Gauche version
 
 ```sh
-$ time gosh aobench.scm
+$ time gosh -r7 aobench.scm
 gosh aobench.scm  208.40s user 0.71s system 90% cpu 3:50.26 total
 ```
 
