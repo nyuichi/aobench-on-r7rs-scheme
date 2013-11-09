@@ -1,21 +1,15 @@
-;;; for R7RS (chibi-scheme)
-;;
-;; (import (scheme base)
-;; 	(scheme file)
-;; 	(scheme write)
-;; 	(scheme inexact)
-;; 	(srfi 27))
-;;
-;; (define-syntax dotimes
-;;   (syntax-rules ()
-;;     ((dotimes (n count) body ...)
-;;      (do ((n 0 (+ n 1)))
-;; 	 ((= n count))
-;;        body ...))))
+(import (scheme base)
+	(scheme file)
+	(scheme write)
+	(scheme inexact)
+	(srfi 27))
 
-;;; for Gauche
-(use srfi-27)
-(define (square x) (* x x))
+(define-syntax dotimes
+  (syntax-rules ()
+    ((dotimes (n count) body ...)
+     (do ((n 0 (+ n 1)))
+	 ((= n count))
+       body ...))))
 
 ;;; this looks good to me
 (define drand48 random-real)
